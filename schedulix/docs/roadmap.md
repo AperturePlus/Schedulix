@@ -7,6 +7,9 @@ Schedulix 是一个面向学习者的 Go 语言项目，通过构建一个模拟
 ## 学习路径总览
 
 ```
+阶段零（可选）
+Go 函数式编程
+    ↓
 阶段一 ──→ 阶段二 ──→ 阶段三 ──→ 阶段四 ──→ 阶段五 ──→ 阶段六 ──→ 阶段七 ──→ 阶段八
 Go 基础    队列/调度   并发编程   事件/容灾   负载/万卡   Serverless  容器操作   监控集成
                                                           ↓
@@ -14,9 +17,26 @@ Go 基础    队列/调度   并发编程   事件/容灾   负载/万卡   Serv
                                               可观测性    数据持久化   容器编排(K8s)
 ```
 
-每个阶段对应独立的 Go 包，可以独立编译和测试。建议按顺序学习，但阶段六～十一之间相对独立。
+每个阶段对应独立的 Go 包，可以独立编译和测试。阶段零是可选的函数式编程热身。建议按顺序学习，但阶段六～十一之间相对独立。
 
 ## 各阶段详情
+
+### 阶段零（可选）：Go 函数式编程（pkg/functools）
+
+**学习目标**：掌握函数类型、高阶函数、闭包、函数组合、函数选项模式和中间件模式
+
+**核心知识点**：
+- 函数类型定义（`type NodePredicate func(*GPU_Node) bool`）
+- 高阶函数（Filter、Map、Reduce）
+- 闭包与状态捕获（Counter、RateLimiter、Retrier）
+- 函数组合（ComposePredicates、Pipeline）
+- 函数选项模式（`WithMaxRetries(3)`）
+- 中间件模式（HTTP 中间件链、调度中间件）
+- 泛型函数（`ReduceNodes[T any]`）
+
+**产出**：函数工具库、Pipeline 管道、中间件链
+
+---
 
 ### 阶段一：Go 基础与数据模型（pkg/model）
 
@@ -48,9 +68,9 @@ Go 基础    队列/调度   并发编程   事件/容灾   负载/万卡   Serv
 
 ---
 
-### 阶段三：并发编程（pkg/scheduler/concurrent）
+### 阶段三：并发编程（pkg/scheduler/concurrent + pkg/concurrency）
 
-**学习目标**：掌握 Go 并发三件套 — goroutine、channel、sync 包
+**学习目标**：掌握 Go 并发三件套和 7 种并发模式
 
 **核心知识点**：
 - goroutine 启动与生命周期
@@ -59,8 +79,15 @@ Go 基础    队列/调度   并发编程   事件/容灾   负载/万卡   Serv
 - sync.WaitGroup 等待组
 - context.Context 超时与取消
 - 数据竞争检测（go test -race）
+- Fan-Out / Fan-In（扇出/扇入）
+- Worker Pool（工作池，泛型实现）
+- Pipeline（并发管道）
+- Select 多路复用
+- sync.Once / sync.Pool（延迟初始化、对象池）
+- Semaphore（信号量，限制并发数）
+- ErrGroup（错误组，任一失败取消其余）
 
-**产出**：并发调度器，支持多 worker 并行调度
+**产出**：并发调度器 + 7 种可复用的并发模式库
 
 ---
 
