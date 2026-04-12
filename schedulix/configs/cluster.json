@@ -1,0 +1,30 @@
+{
+  "data_centers": [
+    {
+      "id": "dc-01",
+      "cabinets": [
+        {
+          "id": "cab-01-01",
+          "racks": [
+            {
+              "id": "rack-01-01-01",
+              "nodes": [
+                { "compute_power": 100, "memory_total": 81920, "fault_rate": 0.01 },
+                { "compute_power": 100, "memory_total": 81920, "fault_rate": 0.01 },
+                { "compute_power": 50,  "memory_total": 40960, "fault_rate": 0.02 },
+                { "compute_power": 50,  "memory_total": 40960, "fault_rate": 0.02 }
+              ]
+            },
+            {
+              "id": "rack-01-01-02",
+              "nodes": [
+                { "compute_power": 200, "memory_total": 163840, "fault_rate": 0.005 },
+                { "compute_power": 200, "memory_total": 163840, "fault_rate": 0.005 }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

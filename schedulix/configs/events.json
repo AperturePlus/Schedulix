@@ -1,0 +1,8 @@
+{
+  "node_down_prob": 0.005,
+  "network_delay_prob": 0.01,
+  "degraded_prob": 0.008,
+  "recovery_prob": 0.05,
+  "total_steps": 1000,
+  "step_interval_ms": 100
+}
