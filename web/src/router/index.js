@@ -86,7 +86,8 @@ router.beforeEach((to) => {
   const allowedRoles = to.meta?.roles
   if (allowedRoles && !allowedRoles.includes(role)) {
     const fallbackPath = roleHomePath(role)
-    return to.path === fallbackPath ? true : fallbackPath
+    if (to.path === fallbackPath) return true
+    return fallbackPath
   }
   return true
 })
