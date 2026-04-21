@@ -50,16 +50,16 @@ const route = useRoute()
 const router = useRouter()
 
 const customerNav = [
-  { to: '/customer/dashboard', icon: '📊', label: 'Dashboard' },
-  { to: '/customer/tasks', icon: '📋', label: 'Tasks' },
+  { to: '/customer/dashboard', icon: 'DB', label: 'Dashboard' },
+  { to: '/customer/tasks', icon: 'TK', label: 'Tasks' },
 ]
 
 const adminNav = [
-  { to: '/admin/dashboard', icon: '📊', label: 'Dashboard' },
-  { to: '/admin/cluster', icon: '🖥️', label: 'Cluster' },
-  { to: '/admin/tasks', icon: '📋', label: 'Tasks' },
-  { to: '/admin/simulator', icon: '⚡', label: 'Simulator' },
-  { to: '/admin/metrics', icon: '📈', label: 'Metrics' },
+  { to: '/admin/dashboard', icon: 'DB', label: 'Dashboard' },
+  { to: '/admin/cluster', icon: 'CL', label: 'Cluster' },
+  { to: '/admin/tasks', icon: 'TK', label: 'Tasks' },
+  { to: '/admin/simulator', icon: 'SM', label: 'Simulator' },
+  { to: '/admin/metrics', icon: 'MT', label: 'Metrics' },
 ]
 
 const currentRole = computed(() => getCurrentRole())
@@ -93,7 +93,7 @@ function handleRoleChange(event) {
 }
 
 .sidebar {
-  width: 220px;
+  width: 240px;
   background: var(--bg-secondary);
   border-right: 1px solid var(--border);
   display: flex;
@@ -120,11 +120,11 @@ function handleRoleChange(event) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   background: var(--accent);
   color: var(--bg-primary);
-  border-radius: 6px;
+  border-radius: 10px;
   font-weight: 700;
   font-size: 16px;
 }
@@ -159,18 +159,18 @@ function handleRoleChange(event) {
 
 .sidebar-nav {
   flex: 1;
-  padding: 12px 8px;
+  padding: 14px 10px;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 6px;
 }
 
 .nav-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 14px;
-  border-radius: 6px;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
   color: var(--text-secondary);
   font-size: 14px;
   transition: all 0.15s;
@@ -182,13 +182,23 @@ function handleRoleChange(event) {
 }
 
 .nav-item.active {
-  background: rgba(0, 212, 170, 0.1);
+  background: var(--bg-tertiary);
+  border: 1px solid rgba(0, 212, 170, 0.28);
   color: var(--accent);
 }
 
 .nav-icon {
-  font-size: 16px;
-  width: 20px;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  background: var(--bg-primary);
   text-align: center;
 }
 
@@ -199,8 +209,8 @@ function handleRoleChange(event) {
 
 .main-content {
   flex: 1;
-  margin-left: 220px;
-  padding: 24px;
+  margin-left: 240px;
+  padding: 28px;
   min-height: 100vh;
 }
 </style>
